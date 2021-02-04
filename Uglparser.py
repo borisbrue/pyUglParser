@@ -54,8 +54,3 @@ class Uglparser:
 
     def get_products(self):
         return self.products
-
-
-fileobject = Uglparser("./raw/dummy.001")
-print(fileobject.get_meta())
-print(len(fileobject.get_products()))

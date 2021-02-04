@@ -41,14 +41,13 @@ class Uglparser:
         }
 
     def process(self):
-
-        file = open(self.filepath, "r", encoding="iso-8859-1")
-        for line in file.readlines():
-            line_type = line[0:3]
-            if line_type == "KOP":
-                self.project = self.process_kop(line)
-            if line_type == "POA":
-                self.products.append(self.process_poa(line))
+        with open(self.filepath, "r", encoding="iso-8859-1") as file:
+            for line in file.readlines():
+                line_type = line[0:3]
+                if line_type == "KOP":
+                    self.project = self.process_kop(line)
+                if line_type == "POA":
+                    self.products.append(self.process_poa(line))
 
     def get_meta(self):
         return self.project
